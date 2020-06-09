@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/710afe8ed2.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha256-JirYRqbf+qzfqVtEE4GETyHlAbiCpC005yBTa4rj6xg=" crossorigin="anonymous"></script>
+    <link href="{% static 'css/base.css' %}" type="text/css" rel="stylesheet">
+
+
+    <title>Shop v2</title>
+  </head>
+  <body>
+  <div class="header-nav shadow-sm position-sticky">
+    <div class="container top-header">
+      <div class="row">
+        <div class="col-sm">
+          <p class="contact">Email || Phone Number</p>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm r-links">
+            {% if user.is_authenticated %}
+            <!-- Default dropup button -->
+              <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Witaj, {{ user.first_name }} {{ user.last_name }}</a>
+              <div class="dropdown-menu">
+                  <li>
+                <a href="{% url 'account:logout' %}"><i class="fas fa-door-open"></i>Logout</a>
+                      </li>
+                <a href="{% url 'cart:cart_detail' %}"><i class="fas fa-shopping-cart"></i>Cart</a>
+              </div>
+            {% else %}
+            <a href="{% url 'account:login' %}"><i class="fas fa-door-open"></i>Login</a>
+            <a href="{% url 'account:register' %}"><i class="fas fa-sign-in-alt"></i>Create an Account</a>
+            <a href="{% url 'cart:cart_detail' %}"><i class="fas fa-shopping-cart"></i>Cart</a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="container header">
+      <div class="row">
+        <div class="col-sm-8 col-md-8 col-6">
+            <div class="brand-logo">
+                <img src="{% static 'img/logo.png' %}" alt="">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+       <ul class="nav justify-content-center mb-4">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shop:product_list' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="container messages">
+      {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success'%}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">{{message}}</div>
+                {% elif message.tags == 'info'%}
+                <div class="alert alert-info alert-dismissible fade show" role="alert">{{message}}</div>
+                {% elif message.tags == 'warning'%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">{{message}}</div>
+                {% elif message.tags == 'error'%}
+                <div class="alert alert-error alert-dismissible fade show" role="alert">{{message}}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+  </div>
+
+    {% block content %}
+    {% endblock %}
+
+  <footer id="sticky-footer" class="py-4 bg-dark mt-4">
+    <div class="container text-center">
+      <small>Copyright &copy; Your Website</small>
+    </div>
+  </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $('.alert').alert()
+    </script>
+
+  </body>
+</html>

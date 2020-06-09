@@ -1,0 +1,19 @@
+{% extends 'shop/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Rejestracja{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <h1>Rejestracja</h1>
+            <p>Wypełnij poniższy formularz</p>
+            <form action="" method="post">
+                {{ form|crispy }}
+                {% csrf_token %}
+                <p><input type="submit" value="Zaloguj"></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

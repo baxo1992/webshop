@@ -1,0 +1,71 @@
+.top-header {
+    margin-top: 10px;
+    padding: 0px;
+}
+.top-header a p {
+    font-size: 15px;
+}
+.r-links {
+    text-align: end;
+}
+.r-links a{
+    color: gray;
+    text-decoration: none;
+    padding: 0px 0px 0px 10px;
+}
+.r-links a:hover {
+    color: black;
+}
+.r-links i {
+    padding-right: 2px;
+}
+.header {
+    padding: 10px;
+    margin-top: 10px;
+}
+.brand-logo img {
+    justify-content: center;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.nav {
+    list-style-type: none;
+    text-align: center;
+    padding: 5px;
+}
+.nav li {
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px 20px;
+}
+.nav a{
+    color: gray;
+}
+.nav a:hover {
+    color: black;
+}
+.product_head {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#sticky-footer {
+  flex-shrink: none;
+}
+/* braintree hosted fields */
+form div.field {
+    font-size:13px;
+    color:#666;
+    width:300px;
+    height:22px;
+    margin-bottom:10px;
+    padding:6px 12px;
+    border:0;
+    color:#666;
+    border-radius:4px;
+}
