@@ -160,8 +160,8 @@ BROKER_URL = "amqp://guest:guest@localhost:5672//"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'krolikowskipatryk24@gmail.com'
-EMAIL_HOST_PASSWORD = 'sombi1992'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
