@@ -7,14 +7,14 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
       <h1>Checkout</h1>
     <form action="." method="post" class="order-form">
       {{ form|crispy }}
       <p><input type="submit" value="Place order"></p>
       {% csrf_token %}
       </div>
-    <div class="col-4">
+    <div class="col-md-4 offset-md-4">
     </form>
       <div class="order-info">
         <h3>Your order</h3>

@@ -6,13 +6,15 @@
 <div class="container">
     <div class="section">
         <div class="row">
-            <h1>Rejestracja</h1>
-            <p>Wypełnij poniższy formularz</p>
-            <form action="" method="post">
-                {{ form|crispy }}
-                {% csrf_token %}
-                <p><input type="submit" value="Zaloguj"></p>
-            </form>
+            <div class="col-6 offset-md-3">
+                <h1>Rejestracja</h1>
+                <p>Wypełnij poniższy formularz</p>
+                <form action="" method="post">
+                    {{ form|crispy }}
+                    {% csrf_token %}
+                    <p><input type="submit" value="Zaloguj"></p>
+                </form>
+            </div>
         </div>
     </div>
 </div>
