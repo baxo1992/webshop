@@ -11,7 +11,7 @@
   <div class="section">
     <div class="row">
   <h1>{% trans "Your shopping cart" %}</h1>
-  <table class="cart">
+  <table class="table-sm">
     <thead>
       <tr>
         <th>{% trans "Image" %}</th>
@@ -41,8 +41,8 @@
               </form>
             </td>
             <td><a href="{% url 'cart:cart_remove' product.id %}">{% trans "Remove" %}</a></td>
-            <td class="num">${{ item.price }}</td>
-            <td class="num">${{ item.total_price }}</td>
+            <td class="num">{{ item.price }} zł</td>
+            <td class="num">{{ item.total_price }} zł</td>
           </tr>
         {% endwith %}
       {% endfor %}
@@ -50,7 +50,7 @@
         <tr class="subtotal">
           <td>{% trans "Subtotal" %}</td>
           <td colspan="4"></td>
-          <td class="num">${{ cart.get_total_price|floatformat:"2" }}</td>
+          <td class="num">{{ cart.get_total_price|floatformat:"2" }} zł</td>
         </tr>
         <tr>
           {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
@@ -66,12 +66,12 @@
         <td>{% trans "Total" %}</td>
         <td colspan="4"></td>
         <td class="num">
-          ${{ cart.get_total_price_after_discount|floatformat:"2" }}
+          {{ cart.get_total_price_after_discount|floatformat:"2" }} zł
         </td>
       </tr>
     </tbody>
   </table>
-  {% if recommended_products %}
+  <!-- {% if recommended_products %}
     <div class="recommendations cart">
       <h3>{% trans "People who bought this also bought" %}</h3>
       {% for p in recommended_products %}
@@ -83,24 +83,23 @@
         </div>
       {% endfor %}
     </div>
-      {% endif %}
+      {% endif %} -->
     </div>
     <br>
   <p>{% trans "Apply a coupon" %}:</p>
   <form action="{% url 'coupons:apply' %}" method="post">
-    {{ coupon_apply_form }}
-    <input type="submit" value="{% trans 'Apply' %}">
-    {% csrf_token %}
+    {{ coupon_apply_form }}  
+    <input class="btn btn-sm btn-primary" type="submit" value="{% trans 'Apply' %}">
+    {% csrf_token %}  
   </form>
   <p class="text-right">
-    <a href="{% url 'shop:product_list' %}" class="button light">{% trans "Continue shopping" %}</a>
-    <a href="{% url 'orders:order_create' %}" class="button">
-      {% trans "Checkout" %}
-    </a>
+    <a href="{% url 'shop:product_list' %}" class="btn btn-primary">{% trans "Continue shopping" %}</a>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-primary">{% trans "Checkout" %}</a>
   </p>
 </div>
   </div>
 </div>
+<!-- CSS -->
 <style>
 table {
   font-family: arial, sans-serif;

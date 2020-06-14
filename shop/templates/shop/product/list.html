@@ -56,8 +56,8 @@
                 <p class="card-text">{{ product.description }}</p>
               </div>
               <div class="card-body">
-                <a href="#" class="card-link">{{ product.price }}</a>
-                <a href="#" class="card-link">Another link</a>
+                <a href="#" class="disabled">Another link</a>
+                <a href="{% url 'cart:cart_add' product.id %}" class="btn btn-primary">Another link</a>
               </div>
 
                 </div>
