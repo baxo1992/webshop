@@ -14,7 +14,7 @@ SECRET_KEY = 'dez*!=%magj1yg=9*nhz%=a8nvmuy)5u$d4-1-s6rph5cbrk9t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['6fda9fdfb9e5.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -93,11 +93,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'Django',
-            'USER': 'postgres',
-            'PASSWORD': '!Ziomalos1992',
-            'HOST': 'localhost',
-            'PORT': '5432',
+            'NAME': '',
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
         }
     }
 
