@@ -14,7 +14,7 @@ SECRET_KEY = 'dez*!=%magj1yg=9*nhz%=a8nvmuy)5u$d4-1-s6rph5cbrk9t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -157,13 +157,22 @@ LOGIN_URL = 'account:login'
 LOGOUT_URL = 'account:logout'
 
 BROKER_URL = "amqp://guest:guest@localhost:5672//"
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 BRAINTREE_MERCHANT_ID = 'vvr2sfvg3p4brw67'
 BRAINTREE_PUBLIC_KEY = '5g9rx3nsrch8tfjg'
